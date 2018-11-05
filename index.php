@@ -76,8 +76,8 @@ function displayGender() {
                <?=displayGender()?>
             </select>
             
-            <input type = "radio" name = "order" value = "asc"> A-Z </input>
-            <input type = "radio" name = "order" value = "des"> Z-A </input>
+            <input type = "radio" name = "order" value = "ASC"> A-Z </input>
+            <input type = "radio" name = "order" value = "DESC"> Z-A </input>
 
             <input type="submit" name="searchForm" value="Search"/>
         </form>
