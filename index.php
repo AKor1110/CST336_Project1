@@ -2,6 +2,7 @@
 
 session_start();
 include 'Connection.php';
+include "inc/functions.php";
 $dbConn = getDatabaseConnection("ottershoes");
 
 function displayBrand() { 
@@ -48,14 +49,20 @@ function displayGender() {
 <!DOCTYPE html>
 <html>
     <head>
-    <link href="css/styles.css" rel="stylesheet" type="text/css"/>
         <title> </title>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href="css/styles.css" rel="stylesheet" type="text/css"/>
     </head>
     <header>
+        <br /> <br /> <br />
             <img src= "img/mb.png">
-        </header>
+    </header>
     <body>
         <h1>OTTERSHOES</h1>
+        <?= includeNavBar() ?>
         
         <form method = "GET">
             
@@ -98,6 +105,8 @@ function displayGender() {
         </form>
         <br>
         <hr>
+        
+        <?= displayResults() ?>
 
     </body>
 </html>

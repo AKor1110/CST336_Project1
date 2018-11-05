@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function displayResults() {
     global $dbConn;
 
@@ -34,16 +36,32 @@ function displayResults() {
     $stmt->execute($namedParameters);
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);        
     
+    echo json_encode($records, JSON_NUMERIC_CHECK);
+    $i = 0;
     
-    /*
-    foreach ($records as $record) {
+    echo "<table border = '1'>";
+    
+    while ($i < 10 && $i < count($records)) {
+        $record = $records[$i];
         
-        echo $record['productName'];
-        echo "</a> ";
-        echo $record['productDescription'] . " $" .  $record['price'] .   "<br>";   
+        echo "<tr>";
+        echo "<td><img src = '". $record["productImage"] . "'></td>";
+        echo "<td><h4>". $record["productName"] . "</h4></td>";
+        echo "<td><h4>$" . $record["price"]. "</h4></td>";
+    
+        echo "<form method = 'post'>";
+        echo "<input type = 'hidden' name = 'itemName' value = '" . $record["productId"] . "'>";
         
+        echo "<td><button class = 'btn btn-warning'> Add </button></td>";
+        
+        echo "</form>";
+        
+        echo "</tr>";
+        
+        $i++;
     }
-    */
+    
+    echo "</table>";
 }
 
 function includeNavBar() {
@@ -51,7 +69,7 @@ function includeNavBar() {
     echo "<nav class='navbar navbar-default - navbar-fixed-top'>
                 <div class='container-fluid'>
                     <div class='navbar-header'>
-                        <a class='navbar-brand' href='#'>Shopping Land</a>
+                        <a class='navbar-brand' href='#'>OtterShoes</a>
                     </div>
                     <ul class='nav navbar-nav'>
                         <li><a href='index.php'>Home</a></li>
@@ -64,6 +82,10 @@ function includeNavBar() {
 }
 
 function getCartCount() {
+    if (!isset($_SESSION["cart"])) {
+        return 0;
+    }
+    
     $res = 0;
     
     foreach ($_SESSION["cart"] as $item) {
