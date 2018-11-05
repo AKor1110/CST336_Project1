@@ -5,6 +5,31 @@ include 'Connection.php';
 include "inc/functions.php";
 $dbConn = getDatabaseConnection("ottershoes");
 
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = array();
+}
+
+if (isset($_POST['itemName'])) {
+    
+    $newItem = array();
+    $newItem['id'] = $_POST['productId'];
+    $newItem['image'] = $_POST['productImage'];
+    $newItem['name'] = $_POST['productName'];
+    $newItem['price'] = $_POST['productPrice'];
+    
+    $found = false;
+    foreach ($_SESSION['cart'] as &$item) {
+        if ($newItem['id'] == $item['id']) {
+            $item['quantity'] += 1;
+            $found = true;
+        }
+    }
+    if ($found != true) {
+        $newItem['quantity'] = 1;
+    }
+    array_push($_SESSION['cart'], $newItem);
+}
+
 function displayBrand() { 
     global $dbConn;
     

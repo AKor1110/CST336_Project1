@@ -49,8 +49,11 @@ function displayResults() {
         echo "<td><h4>". $record["productName"] . "</h4></td>";
         echo "<td><h4>$" . $record["price"]. "</h4></td>";
     
-        echo "<form method = 'post'>";
-        echo "<input type = 'hidden' name = 'itemName' value = '" . $record["productId"] . "'>";
+        echo "<form method='post'>";
+        echo "<input type='hidden' name='productName' value='".$record["productName"]. "'>";
+        echo "<input type='hidden' name='productId' value='".$record["productId"]. "'>";
+        echo "<input type='hidden' name='productImage' value='".$record["productImage"]. "'>";
+        echo "<input type='hidden' name='productPrice' value='".$record["price"]. "'>";
         
         echo "<td><button class = 'btn btn-warning'> Add </button></td>";
         
