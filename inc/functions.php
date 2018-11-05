@@ -10,10 +10,15 @@ function displayResults() {
     $product = $_GET['productName'];
     $sql= "SELECT * FROM os_product WHERE 1";
     
-    if (!empty($product)){
-        $sql .=  " AND productName LIKE :product OR productDescription LIKE :product";
-        $namedParameters[':product'] = "%$product%";
-    }  
+    if (isset($product)){
+        if (!empty($product)) {
+            $sql .=  " AND productName LIKE :product OR productDescription LIKE :product";
+            $namedParameters[':product'] = "%$product%";   
+        } else {
+            echo "<h2> Product name cannot be empty! </h2>";
+            return; 
+        }
+    }
     
     if (!empty($_GET['brand'])){
         $sql .=  " AND brandId =  :brand";
