@@ -6,25 +6,11 @@
                 foreach ($_SESSION['cart'] as $item) {
                     $itemId = $item['id'];
                     $itemQuant = $item['quantity'];
-                    
-                    //echo '<tr>';
-                    
-                    
-                    echo "<tr><img src='". $item['img'] ."'></td>";
+                    echo '<tr>';
+                    echo "<td><img src='". $item['img'] ."'></td>";
                     echo "<td><h4>". $item['name'] ."</h4></td>";
+                    echo "<td><h4>". $itemQuant ."</h4></td>";
                     echo "<td><h4>$". $item['price'] ."</h4></td>";
-                    
-                    echo "<form method='post'>";
-                    echo "<input type='hidden' name='itemId' value='$itemId'>";
-                    echo "<td><input type='text' name='update' class='form-control' placeHolder='$itemQuant'></td>";
-                    echo '<td><button class="btn btn-danger">Update</button></td>';
-                    echo '</form>';
-                    
-                    echo "<form method='post'>";
-                    echo "<input type='hidden' name='removeId' value='$itemId'>";
-                    echo '<td><button class="btn btn-danger">Remove</button></td>';
-                    echo '</form>';
-                    
                     echo "</tr>";
             }
             echo "</table>";
@@ -48,6 +34,7 @@
         <link href="css/styles.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <?php clearItems(); ?>
         <?= includeNavBar() ?>
         </br></br></br>
         <h1>Shopping Cart</h1>
@@ -57,7 +44,7 @@
             </form>
             <?php 
             displayItems();
-            clearItems(); ?>
+            ?>
         </div>
     </body>
 </html>
