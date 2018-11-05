@@ -26,8 +26,8 @@ if (isset($_POST['productName'])) {
     }
     if ($found != true) {
         $newItem['quantity'] = 1;
+        array_push($_SESSION['cart'], $newItem);
     }
-    array_push($_SESSION['cart'], $newItem);
 }
 
 function displayBrand() { 
