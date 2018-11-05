@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include 'Connection.php';
 $dbConn = getDatabaseConnection("ottershoes");
 
@@ -59,31 +60,44 @@ function displayGender() {
         <form method = "GET">
             
             Product: <input type="text" name="productName" placeholder="Product keyword" /> <br />
-
+            <br />
+            
             Shoe Brand: 
             <select name="brand">
                <option value=""> Select one </option>  
                <?=displayBrand()?>
             </select>
+            <br />
+            <br />
+            
             Shoe Color: 
             <select name="color">
                <option value=""> Select one </option>  
                <?=displayColor()?>
             </select>
+            <br />
+            <br />
+            
             Gender: 
             <select name="gender">
                <option value=""> Select one </option>  
                <?=displayGender()?>
             </select>
             
+            <br />
+            <br />
+            
+            Select Order:
             <input type = "radio" name = "order" value = "ASC"> A-Z </input>
             <input type = "radio" name = "order" value = "DESC"> Z-A </input>
+            
+            <br />
+            <br />
 
             <input type="submit" name="searchForm" value="Search"/>
         </form>
         <br>
         <hr>
-         <?=display()?>
 
     </body>
 </html>

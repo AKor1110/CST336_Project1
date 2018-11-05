@@ -46,4 +46,31 @@ function displayResults() {
     */
 }
 
+function includeNavBar() {
+    $count = getCartCount();
+    echo "<nav class='navbar navbar-default - navbar-fixed-top'>
+                <div class='container-fluid'>
+                    <div class='navbar-header'>
+                        <a class='navbar-brand' href='#'>Shopping Land</a>
+                    </div>
+                    <ul class='nav navbar-nav'>
+                        <li><a href='index.php'>Home</a></li>
+                        <li><a href='core/shoppingCart.php'>
+                        <span class = 'glyphicon glyphicon-shopping-cart' aria-hidden = 'true'></span>
+                        Cart: $count </a></li>
+                    </ul>
+                </div>
+            </nav>";
+}
+
+function getCartCount() {
+    $res = 0;
+    
+    foreach ($_SESSION["cart"] as $item) {
+        $res += $item["quantity"];   
+    }
+    
+    return $res;
+}
+
 ?>
