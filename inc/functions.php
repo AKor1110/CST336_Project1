@@ -36,7 +36,7 @@ function displayResults() {
     $stmt->execute($namedParameters);
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);        
     
-    echo json_encode($records, JSON_NUMERIC_CHECK);
+    //echo json_encode($records, JSON_NUMERIC_CHECK);
     $i = 0;
     
     echo "<table border = '1'>";
