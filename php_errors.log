@@ -1,0 +1,30 @@
+[05-Nov-2018 19:53:46 UTC] PHP Warning:  include(../inc/dbConnection.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/CST336_Project1/index.php on line 3
+[05-Nov-2018 19:53:46 UTC] PHP Stack trace:
+[05-Nov-2018 19:53:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:0
+[05-Nov-2018 19:53:46 UTC] PHP   2. include() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:2
+[05-Nov-2018 19:53:46 UTC] PHP Warning:  include(): Failed opening '../inc/dbConnection.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/CST336_Project1/index.php on line 3
+[05-Nov-2018 19:53:46 UTC] PHP Stack trace:
+[05-Nov-2018 19:53:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:0
+[05-Nov-2018 19:53:46 UTC] PHP   2. include() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:2
+[05-Nov-2018 19:53:46 UTC] PHP Fatal error:  Call to undefined function ottershoe() in /home/ubuntu/workspace/CST336_Project1/index.php on line 4
+[05-Nov-2018 19:53:46 UTC] PHP Stack trace:
+[05-Nov-2018 19:53:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:0
+[05-Nov-2018 19:53:46 UTC] PHP   2. include() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:2
+[05-Nov-2018 19:54:02 UTC] PHP Warning:  include(../inc/dbConnection.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/CST336_Project1/index.php on line 3
+[05-Nov-2018 19:54:02 UTC] PHP Stack trace:
+[05-Nov-2018 19:54:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:0
+[05-Nov-2018 19:54:02 UTC] PHP   2. include() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:2
+[05-Nov-2018 19:54:02 UTC] PHP Warning:  include(): Failed opening '../inc/dbConnection.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/CST336_Project1/index.php on line 3
+[05-Nov-2018 19:54:02 UTC] PHP Stack trace:
+[05-Nov-2018 19:54:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:0
+[05-Nov-2018 19:54:02 UTC] PHP   2. include() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:2
+[05-Nov-2018 19:54:02 UTC] PHP Fatal error:  Call to undefined function ottershoe() in /home/ubuntu/workspace/CST336_Project1/index.php on line 4
+[05-Nov-2018 19:54:02 UTC] PHP Stack trace:
+[05-Nov-2018 19:54:02 UTC] PHP   1. {main}() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:0
+[05-Nov-2018 19:54:02 UTC] PHP   2. include() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:2
+[05-Nov-2018 19:54:46 UTC] PHP Warning:  include(index.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php on line 2
+[05-Nov-2018 19:54:46 UTC] PHP Stack trace:
+[05-Nov-2018 19:54:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:0
+[05-Nov-2018 19:54:46 UTC] PHP Warning:  include(): Failed opening 'index.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php on line 2
+[05-Nov-2018 19:54:46 UTC] PHP Stack trace:
+[05-Nov-2018 19:54:46 UTC] PHP   1. {main}() /home/ubuntu/workspace/CST336_Project1/core/shoppingCart.php:0

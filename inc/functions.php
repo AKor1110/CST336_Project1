@@ -73,7 +73,7 @@ function includeNavBar() {
                     </div>
                     <ul class='nav navbar-nav'>
                         <li><a href='index.php'>Home</a></li>
-                        <li><a href='core/shoppingCart.php'>
+                        <li><a href='shoppingCart.php'>
                         <span class = 'glyphicon glyphicon-shopping-cart' aria-hidden = 'true'></span>
                         Cart: $count </a></li>
                     </ul>
