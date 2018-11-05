@@ -34,6 +34,7 @@ function displayResults() {
     $stmt->execute($namedParameters);
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);        
     
+    
     /*
     foreach ($records as $record) {
         

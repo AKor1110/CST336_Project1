@@ -1,7 +1,7 @@
 <?php
 
-include '../inc/dbConnection.php';
-$dbConn = ottershoe("ottershoes");
+include 'Connection.php';
+$dbConn = getDatabaseConnection("ottershoes");
 
 function displayBrand() { 
     global $dbConn;
