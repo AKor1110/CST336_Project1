@@ -42,47 +42,6 @@ function displayGender() {
     }
 
 }
-function display() {
-    global $dbConn;
-
-    
-    $namedParameters= array();
-    $product = $_GET['productName'];
-    $sql= "SELECT * FROM os_product WHERE 1";
-
- if (!empty($product)){
-
-         $sql .=  " AND productName LIKE :product OR productDescription LIKE :product";
-         $namedParameters[':product'] = "%$product%";
-    }  
-  if (!empty($_GET['brand'])){
-
-         $sql .=  " AND brandId =  :brand";
-          $namedParameters[':brand'] = $_GET['brand'] ;
-    }
-  if (!empty($_GET['color'])){
-
-         $sql .=  " AND colorId =  :color";
-          $namedParameters[':color'] = $_GET['color'] ;
-    }
-  if (!empty($_GET['gender'])){
-
-         $sql .=  " AND genderId =  :gender";
-          $namedParameters[':gender'] = $_GET['gender'] ;
-    }
-    
-    $stmt = $dbConn->prepare($sql);
-    $stmt->execute($namedParameters);
-    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);        
-    
-    foreach ($records as $record) {
-        
-        echo $record['productName'];
-        echo "</a> ";
-        echo $record['productDescription'] . " $" .  $record['price'] .   "<br>";   
-        
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +56,7 @@ function display() {
     <body>
         <h1>OTTERSHOES</h1>
         
-        <form>
+        <form method = "GET">
             
             Product: <input type="text" name="productName" placeholder="Product keyword" /> <br />
 
@@ -116,6 +75,9 @@ function display() {
                <option value=""> Select one </option>  
                <?=displayGender()?>
             </select>
+            
+            <input type = "radio" name = "order" value = "asc"> A-Z </input>
+            <input type = "radio" name = "order" value = "des"> Z-A </input>
 
             <input type="submit" name="searchForm" value="Search"/>
         </form>

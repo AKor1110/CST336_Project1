@@ -7,7 +7,7 @@ function displayResults() {
     $namedParameters= array();
     $product = $_GET['productName'];
     $sql= "SELECT * FROM os_product WHERE 1";
-
+    
     if (!empty($product)){
         $sql .=  " AND productName LIKE :product OR productDescription LIKE :product";
         $namedParameters[':product'] = "%$product%";
