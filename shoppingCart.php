@@ -2,11 +2,14 @@
     include "inc/functions.php";
     function displayItems(){ // Displays the users items in the shopping cart
             if (isset($_SESSION['cart'])) {
-                echo "<table class='table'>";
+                echo "<table border = '1' align='center' width='100%'>";
                 foreach ($_SESSION['cart'] as $item) {
                     $itemId = $item['id'];
                     $itemQuant = $item['quantity'];
+                    
                     echo '<tr>';
+                    
+                    
                     echo "<td><img src='". $item['img'] ."'></td>";
                     echo "<td><h4>". $item['name'] ."</h4></td>";
                     echo "<td><h4>". $itemQuant ."</h4></td>";

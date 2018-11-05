@@ -39,7 +39,7 @@ function displayResults() {
     //echo json_encode($records, JSON_NUMERIC_CHECK);
     $i = 0;
     
-    echo "<table border = '1'>";
+    echo "<table border = '1' align='center' width='100%'>";
     
     while ($i < 10 && $i < count($records)) {
         $record = $records[$i];
