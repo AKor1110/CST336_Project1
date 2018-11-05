@@ -9,11 +9,11 @@ if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = array();
 }
 
-if (isset($_POST['itemName'])) {
+if (isset($_POST['productName'])) {
     
     $newItem = array();
     $newItem['id'] = $_POST['productId'];
-    $newItem['image'] = $_POST['productImage'];
+    $newItem['img'] = $_POST['productImage'];
     $newItem['name'] = $_POST['productName'];
     $newItem['price'] = $_POST['productPrice'];
     
