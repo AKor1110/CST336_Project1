@@ -45,6 +45,7 @@
             <form method="get">
               <button type="submit" value="Submit" name="remove">Remove all</button>
             </form>
+            <br />
             <?php 
             displayItems();
             ?>

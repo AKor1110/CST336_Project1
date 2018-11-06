@@ -10,66 +10,68 @@ function displayResults() {
     $product = $_GET['productName'];
     $sql= "SELECT * FROM os_product WHERE 1";
     
-    if (isset($product)){
-        if (!empty($product)) {
-            $sql .=  " AND productName LIKE :product OR productDescription LIKE :product";
-            $namedParameters[':product'] = "%$product%";   
-        } else {
-            echo "<h2> Product name cannot be empty! </h2>";
-            return; 
+    if (isset($_GET) && !empty($_GET)) {
+        if (isset($product)){
+            if (!empty($product)) {
+                $sql .=  " AND productName LIKE :product OR productDescription LIKE :product";
+                $namedParameters[':product'] = "%$product%";   
+            } else {
+                echo "<h2> Product name cannot be empty! </h2>";
+                return; 
+            }
         }
-    }
     
-    if (!empty($_GET['brand'])){
-        $sql .=  " AND brandId =  :brand";
-        $namedParameters[':brand'] = "%". $_GET['brand']. "%" ;
-    }
-    
-    if (!empty($_GET['color'])){
-        $sql .=  " AND colorId =  :color";
-        $namedParameters[':color'] = "%".$_GET['color'] . "%" ;
-    }
-    
-    if (!empty($_GET['gender'])){
-        $sql .=  " AND genderId =  :gender";
-        $namedParameters[':gender'] = "%". $_GET['gender'] . "%" ;
-    }
-    
-    $sql .= " ORDER BY productName " . $_GET["order"];
-    
-    $stmt = $dbConn->prepare($sql);
-    $stmt->execute($namedParameters);
-    $records = $stmt->fetchAll(PDO::FETCH_ASSOC);        
-    
-    //echo json_encode($records, JSON_NUMERIC_CHECK);
-    $i = 0;
-    
-    echo "<table border = '1' align='center' width='100%'>";
-    
-    while ($i < 10 && $i < count($records)) {
-        $record = $records[$i];
+        if (!empty($_GET['brand'])){
+            $sql .=  " AND brandId =  :brand";
+            $namedParameters[':brand'] = "%". $_GET['brand']. "%" ;
+        }
         
-        echo "<tr>";
-        echo "<td><img src = '". $record["productImage"] . "'></td>";
-        echo "<td><h4>". $record["productName"] . "</h4></td>";
-        echo "<td><h4>$" . $record["price"]. "</h4></td>";
-    
-        echo "<form method='post'>";
-        echo "<input type='hidden' name='productName' value='".$record["productName"]. "'>";
-        echo "<input type='hidden' name='productId' value='".$record["productId"]. "'>";
-        echo "<input type='hidden' name='productImage' value='".$record["productImage"]. "'>";
-        echo "<input type='hidden' name='productPrice' value='".$record["price"]. "'>";
+        if (!empty($_GET['color'])){
+            $sql .=  " AND colorId =  :color";
+            $namedParameters[':color'] = "%".$_GET['color'] . "%" ;
+        }
         
-        echo "<td><button class = 'btn btn-warning'> Add </button></td>";
+        if (!empty($_GET['gender'])){
+            $sql .=  " AND genderId =  :gender";
+            $namedParameters[':gender'] = "%". $_GET['gender'] . "%" ;
+        }
         
-        echo "</form>";
+        $sql .= " ORDER BY productName " . $_GET["order"];
         
-        echo "</tr>";
+        $stmt = $dbConn->prepare($sql);
+        $stmt->execute($namedParameters);
+        $records = $stmt->fetchAll(PDO::FETCH_ASSOC);        
         
-        $i++;
-    }
-    
-    echo "</table>";
+        $i = 0;
+        
+        echo "<table border = '1' align='center' width='100%'>";
+        
+        while ($i < 10 && $i < count($records)) {
+            $record = $records[$i];
+            
+            echo "<tr>";
+            echo "<td><img src = '". $record["productImage"] . "'></td>";
+            echo "<td><h4>". $record["productName"] . "</h4></td>";
+            echo "<td><h4>$" . $record["price"]. "</h4></td>";
+        
+            echo "<form method='post'>";
+            echo "<input type='hidden' name='productName' value='".$record["productName"]. "'>";
+            echo "<input type='hidden' name='productId' value='".$record["productId"]. "'>";
+            echo "<input type='hidden' name='productImage' value='".$record["productImage"]. "'>";
+            echo "<input type='hidden' name='productPrice' value='".$record["price"]. "'>";
+            
+            echo "<td><button class = 'btn btn-warning'> Add </button></td>";
+            
+            echo "</form>";
+            
+            echo "</tr>";
+            
+            $i++;
+        }
+        
+        echo "</table>";
+        }
+        
 }
 
 function includeNavBar() {
