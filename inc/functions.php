@@ -51,7 +51,9 @@ function displayResults() {
             
             echo "<tr>";
             echo "<td><img src = '". $record["productImage"] . "'></td>";
-            echo "<td><h4>". $record["productName"] . "</h4></td>";
+            echo "<td><h4>". $record["productName"] . "<br />";
+            showAdditionalInfo($record["productDescription"], $record["productImage"], $record["productName"], $record["price"], $i);
+            echo "</h4></td>";
             echo "<td><h4>$" . $record["price"]. "</h4></td>";
         
             echo "<form method='post'>";
@@ -105,4 +107,34 @@ function getCartCount() {
     return $res;
 }
 
+function showAdditionalInfo ($desc, $img, $name, $price, $num) {
+        echo "<button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModalCenter$num'>";
+      echo "Additional Product Info";
+    echo "</button>";
+    
+    echo "<div class='modal fade' id='exampleModalCenter$num' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>";
+      echo "<div class='modal-dialog modal-dialog-centered$' role='document'>";
+        echo "<div class='modal-content'>";
+          echo "<div class='modal-header'>";
+            echo "<h5 class='modal-title' id='exampleModalCenterTitle'>Full Product Info</h5>";
+            echo "<button type='button' class='close' data-dismiss='modal' aria-label='Close'>";
+              echo "<span aria-hidden='true'>&times;</span>";
+            echo "</button>";
+          echo "</div>";
+          echo "<div class='modal-body'>";
+            echo "<img src = '$img'>";
+            echo "<br />";
+            echo $name;
+            echo "<br />";
+            echo $desc;
+            echo "<br />";
+            echo "$$price";
+          echo "</div>";
+          echo "<div class='modal-footer'>";
+            echo "<button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>";
+          echo "</div>";
+        echo "</div>";
+      echo "</div>";
+    echo "</div>";
+}
 ?>
