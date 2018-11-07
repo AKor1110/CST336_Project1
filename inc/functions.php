@@ -40,7 +40,12 @@ function displayResults() {
         
         $stmt = $dbConn->prepare($sql);
         $stmt->execute($namedParameters);
-        $records = $stmt->fetchAll(PDO::FETCH_ASSOC);        
+        $records = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+        
+        if (empty($records)) {
+            echo "<h2> No product results! </h2>";
+            return;
+        }
         
         $i = 0;
         
