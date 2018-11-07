@@ -13,7 +13,7 @@ function displayResults() {
     if (isset($_GET) && !empty($_GET)) {
         if (isset($product)){
             if (!empty($product)) {
-                $sql .=  " AND productName LIKE :product OR productDescription LIKE :product";
+                $sql .=  " AND productDescription LIKE :product";
                 $namedParameters[':product'] = "%$product%";   
             } else {
                 echo "<h2> Product name cannot be empty! </h2>";
@@ -28,7 +28,7 @@ function displayResults() {
         
         if (!empty($_GET['color'])){
             $sql .=  " AND colorId =  :color";
-            $namedParameters[':color'] = "%".$_GET['color'] . "%" ;
+            $namedParameters[':color'] = $_GET['color'];
         }
         
         if (!empty($_GET['gender'])){
@@ -113,7 +113,7 @@ function showAdditionalInfo ($desc, $img, $name, $price, $num) {
     echo "</button>";
     
     echo "<div class='modal fade' id='exampleModalCenter$num' tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true'>";
-      echo "<div class='modal-dialog modal-dialog-centered$' role='document'>";
+      echo "<div class='modal-dialog modal-dialog-centered' role='document'>";
         echo "<div class='modal-content'>";
           echo "<div class='modal-header'>";
             echo "<h5 class='modal-title' id='exampleModalCenterTitle'>Full Product Info</h5>";
