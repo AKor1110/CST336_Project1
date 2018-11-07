@@ -33,7 +33,7 @@ function displayBrand() {
     $stmt = $dbConn->prepare($sql);
     $stmt->execute();
     $records = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+
     foreach ($records as $record) {
         echo "<option value='".$record['brandId']."'>" . $record['brandName'] . "</option>";
     }
@@ -83,7 +83,7 @@ function displayGender() {
         
         <form method = "GET">
             
-            Product: <input type="text" name="productName" placeholder="Product keyword" /> <br />
+            Product: <input type="text" name="productName" placeholder="Product keyword" value = "<?php if (isset($_GET["productName"]) && !empty($_GET["productName"])) { echo $_GET["productName"];}  ?>"/> <br />
             <br />
             
             Shoe Brand: 
@@ -112,7 +112,7 @@ function displayGender() {
             <br />
             
             Select Order:
-            <input type = "radio" name = "order" value = "ASC"> A-Z </input>
+            <input type = "radio" name = "order" value = "ASC" > A-Z </input>
             <input type = "radio" name = "order" value = "DESC"> Z-A </input>
             
             <br />
