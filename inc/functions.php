@@ -33,7 +33,7 @@ function displayResults() {
         
         if (!empty($_GET['gender'])){
             $sql .=  " AND genderId =  :gender";
-            $namedParameters[':gender'] = "%". $_GET['gender'] . "%" ;
+            $namedParameters[':gender'] = $_GET['gender'];
         }
         
         $sql .= " ORDER BY productName " . $_GET["order"];
