@@ -23,7 +23,7 @@ function displayResults() {
     
         if (!empty($_GET['brand'])){
             $sql .=  " AND brandId =  :brand";
-            $namedParameters[':brand'] = "%". $_GET['brand']. "%" ;
+            $namedParameters[':brand'] = $_GET['brand'];
         }
         
         if (!empty($_GET['color'])){
